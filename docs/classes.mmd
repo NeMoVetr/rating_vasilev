@@ -1,0 +1,37 @@
+classDiagram
+    class DataReader {
+        <<abstract>>
+        +read(path: str) DataType
+    }
+    class TextDataReader {
+        +key: str
+        +students: DataType
+        +__init__()
+        +read(path: str) DataType
+    }
+    class XmlDataReader {
+        +read(path: str) DataType
+        -_read_name(element: Element) str$
+    }
+    class CalcRating {
+        +data: DataType
+        +rating: RatingType
+        +__init__(data: DataType)
+        +calc() RatingType
+    }
+    class PerfectStudentFinder {
+        +data: DataType
+        +__init__(data: DataType)
+        +find() str_or_None
+    }
+    class Application {
+        <<module>>
+        +get_path_from_arguments(args) str
+        +main(args) int
+    }
+    DataReader <|-- TextDataReader
+    DataReader <|-- XmlDataReader
+    Application ..> TextDataReader : creates
+    Application ..> XmlDataReader : creates
+    Application ..> CalcRating : calculates averages
+    Application ..> PerfectStudentFinder : finds student
