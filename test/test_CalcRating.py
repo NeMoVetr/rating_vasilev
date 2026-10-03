@@ -37,7 +37,4 @@ class TestCalcRating:
 
     def test_calc(self, input_data: tuple[DataType, RatingsType]) -> None:
         rating = CalcRating(input_data[0]).calc()
-        for student in rating.keys():
-            rating_score = rating[student]
-        assert pytest.approx(rating_score,
-                             abs=0.001) == input_data[1][student]
+        assert rating == pytest.approx(input_data[1], abs=0.001)

@@ -9,10 +9,10 @@ class CalcRating:
         self.data: DataType = data
         self.rating: RatingType = {}
 
-        def calc(self) -> RatingType:
-            for key in self.data:
-                self.rating[key] = 0.0
-                for subject in self.data[key]:
-                    self.rating[key] += subject[1]
-                self.rating[key] /= len(self.data[key])
-            return self.rating
+    def calc(self) -> RatingType:
+        for key, subjects in self.data.items():
+            self.rating[key] = (
+                sum(score for _, score in subjects) / len(subjects)
+                if subjects else 0.0
+            )
+        return self.rating
