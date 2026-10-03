@@ -6,3 +6,12 @@ dependencies = [
     "pytest>=9.1.1",
     "pycodestyle>=2.11.0",
 ]
+
+[tool.pytest.ini_options]
+testpaths = ["test"]
+pythonpath = [".", "src"]
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=7.1.0",
+]
