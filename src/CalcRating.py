@@ -3,8 +3,6 @@ from Types import DataType
 
 RatingType = dict[str, float]
 
-# This intentionally long comment is used to demonstrate how CI reports a style error in the source code.
-
 
 class CalcRating:
     def __init__(self, data: DataType) -> None:

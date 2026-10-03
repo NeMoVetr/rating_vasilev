@@ -38,3 +38,4 @@ class TestCalcRating:
     def test_calc(self, input_data: tuple[DataType, RatingsType]) -> None:
         rating = CalcRating(input_data[0]).calc()
         assert rating == pytest.approx(input_data[1], abs=0.001)
+        assert rating["Абрамов Петр Сергеевич"] == 0.0
