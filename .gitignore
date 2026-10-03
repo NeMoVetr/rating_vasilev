@@ -3,3 +3,7 @@ __pycache__
 .env
 .idea
 .pytest_cache
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml

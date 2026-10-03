@@ -1,6 +1,7 @@
 import pytest
 
-from src import PerfectStudentFinder, DataType
+from src.PerfectStudentFinder import PerfectStudentFinder
+from src.Types import DataType
 
 
 class TestPerfectStudentFinder:

@@ -118,7 +118,5 @@ def test_script_entry_point(tmp_path: Path, capsys, monkeypatch) -> None:
     path.write_text("<students/>", encoding="utf-8")
     monkeypatch.setattr("sys.argv", ["main.py", "-p", str(path)])
     script = Path(__file__).resolve().parents[1] / "src" / "main.py"
-    with pytest.raises(SystemExit) as error:
-        runpy.run_path(str(script), run_name="__main__")
-    assert error.value.code == 0
+    runpy.run_path(str(script), run_name="__main__")
     assert "Студентов со 100 баллами" in capsys.readouterr().out
