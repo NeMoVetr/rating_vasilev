@@ -38,3 +38,15 @@ class TestCalcRating:
     def test_calc(self, input_data: tuple[DataType, RatingsType]) -> None:
         rating = CalcRating(input_data[0]).calc()
         assert rating == pytest.approx(input_data[1], abs=0.001)
+
+    def test_empty_data(self) -> None:
+        assert CalcRating({}).calc() == {}
+
+    def test_student_without_subjects(self) -> None:
+        assert CalcRating({"Иванов": []}).calc() == {"Иванов": 0.0}
+
+    def test_repeated_calculation(
+            self, input_data: tuple[DataType, RatingsType]) -> None:
+        calculator = CalcRating(input_data[0])
+        calculator.calc()
+        assert calculator.calc() == pytest.approx(input_data[1], abs=0.001)
