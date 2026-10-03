@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-from src.Types import DataType
-from src.CalcRating import CalcRating
+from src import DataType, CalcRating
 import pytest
 
 RatingsType = dict[str, float]

@@ -3,8 +3,7 @@ from xml.etree.ElementTree import ParseError
 
 import pytest
 
-from DataReader import DataReader
-from src.XmlDataReader import XmlDataReader
+from src import DataReader, XmlDataReader
 
 
 @pytest.fixture()
